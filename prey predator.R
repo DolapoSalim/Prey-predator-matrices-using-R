@@ -1,0 +1,39 @@
+#PREY PREDATOR MATRICES
+#Community Ecology 2020-21
+#Lab activities n3 - Original Script by Prof. Mancinelli Unisalento
+#prey predator matrices, metrics
+
+PREY PREDATOR MATRICES
+#Community Ecology 2020-21
+#Lab activities n3
+#prey predator matrices, metrics
+
+library(foodweb)
+
+install.packages("foodweb")
+
+#set the working directory
+getwd()
+setwd("G:/CE2022/fw")
+
+#load food web data
+data(moss)
+moss
+
+#save the data in an file that can be read in excel
+write.table(moss,file="Web1.csv", append=FALSE,sep=",", row.names=FALSE, col.names=FALSE)
+
+analyse.single(filename="Web1.csv", sp.names="FALSE")
+res.1<-read.csv("Results-Web1.csv", sep=",")
+
+plotweb(col=c("red", "green", "blue", "yellow"), radii=c(5,10,42,22))
+
+
+azzurra<-read.csv("azzurra.csv", row.names=1, header=T)
+azzurra.2<-t(azzurra)
+write.table(azzurra.2,file="Web2.csv", sep=",", row.names=FALSE, col.names=FALSE)
+
+analyse.single(filename="Web2.csv", sp.names="FALSE")
+res.2<-read.csv("Results-Web2.csv", sep=",")
+
+plotweb(col=c("red", "green", "blue", "yellow", "chocolate1", "gold3","gold1", "turquoise2", "red4"), radii=c(5,10,42,22, 40, 50, 20, 10, 8))
